@@ -1,67 +1,55 @@
-var grades = [];
-        var update_scores = function () {
-           var val = get_item_list(grades);
-           //Add the appropriate id names to read scores, student_name
-           document.getElementById("scores").value = val;
-           document.getElementById("student_name").value = "";
-           document.getElementById("score").value = "";   
-           document.getElementById("student_name").focus();
-        }    
-        //Function to add last, first, score to studentGrade
-        var student_grade_add_click = function() {
-        var last = document.getElementById("student_name").value;
-                var score = parseFloat(document.getElementById('score').value);
-                grades.push([last, score]);  
-                update_scores();
-                document.getElementById("average_score").value = getAverageScore(grades);
-        }
+canvas = document.getElementById("myCanvas");
+ctx= canvas.getContext("2d");
 
-        var get_item_list = function(item_list) {
-           if ( item_list.length == 0 ) {
-              return "";
-           }
-           var list = "";
-           for ( var i = 0; i < item_list.length; i++) {
-              var current = item_list[i];
-              for ( var attribute in current ) {
-                  list += current[attribute] + ", "; 
-              }
-          list += "\n";  
-           }
-           return list;
-        }
-        
-        //Average function
-        function getAverageScore(grades){ 
-        
-        var numberOfStudents = grades.length; 
-        var sum = 0; 
-        if(numberOfStudents > 0) { 
-            for(var i=0; i < numberOfStudents; i++) {
-                sum += grades[i][1]; 
-            }
-        return sum/numberOfStudents; 
-        }
-        return 0; 
-        }
-        
-        function clear_click()
-        {
-                document.getElementById("form").reset();
-                document.getElementById("average_score").value="";
-                grades.splice(0, grades.length);  
-        }
-        
-        var sort_click = function () 
-        {
-        //Add the sort() function to sort students by thier names
-        grades.sort();
-        update_scores();
-        }
-        
-        window.onload = function() {
-                document.getElementById("add_button").onclick = student_grade_add_click;
-                document.getElementById("sort_button").onclick = sort_click;      
-                document.getElementById("student_name").focus();
-        }
-        
+/*
+    Use beginPath() function to begin a path.
+    Then, use strokeStyle to set the color to "grey".
+    Use lineWidth and set the width to 1.
+    Use rect() to create a rectangle at 150 and 143
+with 430 width and 200 height.
+*/
+
+ctx.beginPath();
+ctx.strokeStyle = "grey";
+ctx.lineWidth = 1;
+ctx.rect(150, 143, 430, 200);
+ctx.stroke();
+
+/*
+    Use beginPath() function to begin a path.
+    Then, use strokeStyle to set the color to "blue".
+    Use lineWidth and set the width to 5.
+    Use arc() to create a circle at x = 150 and y = 210
+with 40 as radius, 0 startAngle and 2 * Math.PI endAngle.
+*/
+
+ctx.beginPath();
+ctx.strokeStyle = "blue";
+ctx.lineWidth= 5;
+ctx.arc(250, 210, 40, 0, 2 * Math.PI);
+ctx.stroke();
+
+// Similarly, create a black circle with position 350 and 210
+ctx.beginPath();
+ctx.strokeStyle = "black";
+ctx.lineWidth= 5;
+ctx.arc(350, 210, 40, 0, 2 * Math.PI);
+ctx.stroke();
+// Similarly, create a red circle with position 210 and 40
+ctx.beginPath();
+ctx.strokeStyle = "red";
+ctx.lineWidth= 5;
+ctx.arc(450, 210, 40, 0, 2 * Math.PI);
+ctx.stroke();
+// Similarly, create an orange circle with position 300 and 250
+ctx.beginPath();
+ctx.strokeStyle = "orange";
+ctx.lineWidth= 5;
+ctx.arc(300, 250, 40, 0, 2 * Math.PI);
+ctx.stroke();
+// Similarly, create a green circle with position 400 and 250ctx.beginPath();
+ctx.beginPath();
+ctx.strokeStyle = "green";
+ctx.lineWidth= 5;
+ctx.arc(400, 250, 40, 0, 2 * Math.PI);
+ctx.stroke();
